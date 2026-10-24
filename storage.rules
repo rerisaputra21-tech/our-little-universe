@@ -1,0 +1,22 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function activeMember() {
+      return request.auth != null
+        && firestore.exists(/databases/(default)/documents/members/$(request.auth.uid))
+        && firestore.get(/databases/(default)/documents/members/$(request.auth.uid)).data.active == true;
+    }
+    function isAdmin() {
+      return activeMember()
+        && firestore.get(/databases/(default)/documents/members/$(request.auth.uid)).data.role == 'admin';
+    }
+    match /familyPhotos/{photoId} {
+      allow read: if activeMember();
+      allow create: if isAdmin()
+        && request.resource.size <= 5 * 1024 * 1024
+        && request.resource.contentType.matches('image/(jpeg|png|webp)');
+      allow update: if false;
+      allow delete: if isAdmin();
+    }
+  }
+}

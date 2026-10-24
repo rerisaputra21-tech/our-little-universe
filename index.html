@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#294334">
+  <title>Our Little Universe — Rumah Kenangan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">♡</span><span id="brandName">Our Little Universe</span></a>
+    <button id="signOutBtn" class="btn btn-quiet hidden">Keluar</button>
+  </header>
+
+  <main>
+    <section id="loginPanel" class="login-wrap">
+      <div class="login-art">
+        <p class="eyebrow">TEMPAT PULANG, TEMPAT BERCERITA</p>
+        <h1>Cerita kita,<br><em>selamanya.</em></h1>
+        <p class="lead">Satu keluarga, ribuan cerita, kenangan yang tak tergantikan.</p>
+        <div class="login-photo-placeholder">♡ <span>Kenangan keluarga dimulai di sini</span></div>
+      </div>
+      <form id="loginForm" class="login-card">
+        <div class="lock-icon">⌑</div>
+        <h2>Ruang keluarga</h2>
+        <p class="muted">Masuk menggunakan akun yang telah diundang admin.</p>
+        <label for="email">Email</label>
+        <input id="email" type="email" autocomplete="username" required placeholder="nama@email.com">
+        <label for="password">Kata sandi</label>
+        <input id="password" type="password" autocomplete="current-password" required placeholder="Kata sandi">
+        <button class="btn btn-primary full" type="submit">Masuk ke kenangan</button>
+        <p id="loginMessage" class="message" role="status"></p>
+        <p class="tiny muted">Akses terbatas untuk anggota keluarga.</p>
+      </form>
+    </section>
+
+    <section id="appPanel" class="hidden">
+      <div class="hero">
+        <div>
+          <p class="eyebrow">ALBUM PRIBADI KELUARGA</p>
+          <h1>Hal-hal kecil yang<br><em>berarti selamanya.</em></h1>
+          <p class="lead">Simpan cerita di balik setiap foto, agar selalu bisa kita kunjungi kembali.</p>
+          <p id="welcomeText" class="welcome"></p>
+        </div>
+        <div class="hero-stamp">OUR<br><span>♡</span><br>STORY</div>
+      </div>
+
+      <div class="section-head">
+        <div><p class="eyebrow">KUMPULAN CERITA</p><h2>Kenangan keluarga</h2></div>
+        <div class="toolbar">
+          <input id="searchInput" class="search" type="search" placeholder="Cari kenangan…">
+          <select id="yearFilter" aria-label="Filter tahun"><option value="all">Semua tahun</option></select>
+        </div>
+      </div>
+
+      <section id="adminUpload" class="upload-card hidden">
+        <div><h3>Tambahkan kenangan</h3><p class="muted">Foto disimpan secara privat. Gunakan foto JPG, PNG, atau WebP maksimal 5 MB.</p></div>
+        <form id="uploadForm">
+          <label for="photoFile">Pilih foto</label>
+          <input id="photoFile" type="file" accept="image/jpeg,image/png,image/webp" required>
+          <label for="photoTitle">Judul kenangan</label>
+          <input id="photoTitle" type="text" maxlength="100" required placeholder="Contoh: Minggu bersama keluarga">
+          <label for="photoDate">Tanggal kenangan</label>
+          <input id="photoDate" type="date" required>
+          <label for="photoNote">Cerita singkat (opsional)</label>
+          <textarea id="photoNote" maxlength="1000" rows="2" placeholder="Ceritakan momen ini…"></textarea>
+          <button class="btn btn-primary" type="submit">Unggah foto</button>
+          <p id="uploadMessage" class="message" role="status"></p>
+        </form>
+      </section>
+
+      <div id="galleryStatus" class="muted status">Memuat kenangan…</div>
+      <div id="gallery" class="gallery"></div>
+      <p class="privacy-note">🔒 Album ini hanya bisa diakses oleh anggota yang terdaftar. Jangan bagikan kata sandi atau foto sensitif.</p>
+    </section>
+  </main>
+
+  <footer>Made with love · Our Little Universe</footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
