@@ -14,12 +14,12 @@ import {
 
 // Ganti nilai contoh ini dengan konfigurasi dari Firebase Console > Project settings > Your apps.
 const firebaseConfig = {
-  apiKey: "ISI_API_KEY",
-  authDomain: "ISI_PROJECT_ID.firebaseapp.com",
-  projectId: "ISI_PROJECT_ID",
-  storageBucket: "ISI_BUCKET_NAME",
-  messagingSenderId: "ISI_SENDER_ID",
-  appId: "ISI_APP_ID"
+  apiKey: "AIzaSyBVdICxp3yYLbr53aW6o353c8-JKaFmvUw",
+  authDomain: "our-little-universe-81fc2.firebaseapp.com",
+  projectId: "our-little-universe-81fc2",
+  storageBucket: "our-little-universe-81fc2.firebasestorage.app",
+  messagingSenderId: "172499613281",
+  appId: "1:172499613281:web:dc6f8e5399f4ed7f7b5c20",
 };
 
 const $ = (id) => document.getElementById(id);
